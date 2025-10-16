@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-web
+  namespace: devops
+  labels:
+    app: static-web
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: static-web
+  template:
+    metadata:
+      labels:
+        app: static-web
+    spec:
+      containers:
+        - name: web
+          image: cr.yandex/crp44igmlqftj6a9bep0/devops:1.0.0
+          ports:
+            - name: http
+              containerPort: 5103
+              protocol: TCP

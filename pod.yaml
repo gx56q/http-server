@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  namespace: devops
+spec:
+  containers:
+    - name: web
+      image: cr.yandex/crp44igmlqftj6a9bep0/devops:1.0.0
+      ports:
+        - name: http
+          containerPort: 5103
+          protocol: TCP
+        - name: https
+          containerPort: 7164
+          protocol: TCP
