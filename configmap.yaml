@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: static-web-config
+  namespace: devops
+data:
+  settings_username: "admin"
+  settings_password: "password123"

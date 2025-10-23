@@ -27,3 +27,6 @@ spec:
             - name: http
               containerPort: 5103
               protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: static-web-config
